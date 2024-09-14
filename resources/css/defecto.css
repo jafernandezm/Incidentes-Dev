@@ -1,0 +1,48 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+:root {
+	--clr: #ffffff;
+    --blue: #1C2B48;
+	--blue-strong: #1F2937;
+	--blue-clear: #475569;
+    --grey: #767676;
+	--grey_clear: #B0B0B0;
+	--l_grey: #CBCBCB;
+	--black: #252424;
+	--white: #E2E8F0;
+	--white-strong: #f5ffff;
+	--red: #ff0000;
+	--yellow-tag: #EAE686;
+	--yellow-strong: #b3ae22;
+	--red-tag: #FF6868;
+	--red-strong: #FF0000;
+	--blue-tag: #83D2F3;
+	--blue-strong-tag: #4A90E2;
+	--lilac-tag: #3b4fe2 ;
+	--lilac-strong: #0013c3dd;
+	--green-tag: #A7DD9E;
+	--green-strong: #4CAF50;
+	    /* Regular */
+	--sf-pro-regular: 'SF Pro Display Regular', sans-serif;
+
+	/* Semibold */
+	--sf-pro-semibold: 'SF Pro Display Semibold', sans-serif;
+
+	/* Medium */
+	--sf-pro-medium: 'SF Pro Display Medium', sans-serif;
+
+	/* Bold */
+	--sf-pro-bold: 'SF Pro Display Bold', sans-serif;
+
+	/* Heavy */
+	--sf-pro-heavy: 'SF Pro Display Heavy', sans-serif;
+}
+
+body{
+	background-color: var(--white);
+}

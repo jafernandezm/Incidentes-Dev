@@ -1,0 +1,299 @@
+/* Estilos para el encabezado de la tarjeta */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos para el título dentro del encabezado */
+#card_title {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Estilos para el botón flotante */
+.float-right {
+    margin-top: 10px;
+	align-items: right;
+	margin-bottom: 15px;
+	
+}
+
+/* Estilos para la tabla */
+.tableR {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilos para las filas impares */
+.tableR tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para las celdas de la tabla */
+.tableR th{
+    color: #fff;
+    background: var(--blue-strong);
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tableR td {
+    
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.centered-form {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    gap: 10px; /* Espacio entre los botones */
+    flex-wrap: wrap; /* Para que los elementos se ajusten en varias filas si es necesario */
+}
+
+
+.cent-col form {
+    display: flex;
+    justify-content: center; /* Centra los elementos dentro del formulario horizontalmente */
+    align-items: center; /* Centra los elementos dentro del formulario verticalmente */
+    
+}
+
+/* Estilos para los botones dentro de las celdas */
+.btn2 {
+    margin-top: 0px;
+	padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+	width: 38px;
+  	height: 29px;
+}
+
+.btn2-primary {
+    background: var(--blue-strong);
+    color: #fff;
+}
+
+.btn2-primary:hover {
+    background: var(--blue-clear);
+}
+
+.btn-danger2 {
+    background-color: #c82333 ;
+    color: #fff;
+	width: 40px;
+  	height: 29px;
+	margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 8px 12px;
+}
+
+.btn-danger2:hover {
+    background-color: #dc3545;
+}
+
+.btn_right{
+	align-items: center;
+	background: var(--blue-clear);
+    color: #fff;
+	padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+	width: 10px;
+  	height: 10px;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.btn_right:hover {
+    background: var(--blue-strong);
+}
+
+.agregar_objetivos2{
+	width: 33%;
+	margin-left: 33%;
+	margin-bottom: 6%;
+	padding: 8px 20px;
+	border: 1.5px dotted var(--black);
+	font-size: 1.3rem;
+	color: var(--grey);
+	background: var(--white); 
+	
+} 
+
+
+
+
+
+
+/* Container Styles */
+.container_formularios2 {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container_docen_create{
+    display: flex;
+    width: 100%;
+    padding: 3rem;
+    flex-direction: column;
+    background-color:#1C2B48;
+}
+
+/* Input Box Styles */
+.input-box-autoria2 {
+    margin-bottom: 20px;
+	border-radius: 4px;
+}
+
+.input-box-autoria2 input2{
+    width: 100%;
+	padding: 5px;
+	outline: none;
+	font-size: 14px;
+	
+}
+
+/* Label Styles */
+.titulo_titulacion {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input and Select Styles */
+.form-control {
+    display:flex;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* Custom Select Styles */
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><path fill="#ccc" d="M0 0l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 10px 5px;
+    padding-right: 30px;
+}
+
+/* Password Container Styles */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 0.9em;
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Error Styles */
+.is-invalid {
+    border-color: #e3342f;
+}
+
+.invalid-feedback {
+    color: #e3342f;
+    font-size: 80%;
+}
+
+
+/* Submit Button Styles */
+/* .input_enviar {
+    display: inline-block;
+    background-color: #313a4b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input_enviar:hover {
+    background-color: #223457;
+} */
+
+
+
+.title_files_labels22 {
+	display: flex;
+    background-color: #1C2B48;
+    color: white;
+	width: 100%;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.container_roles_config-rol2{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    height: max-content;
+}
+.list-rol2{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    margin-left: 33%;
+    padding: 0px;
+    width: 17.5rem;
+}
+
+.list-rol23{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+	box-sizing: border-box;
+	border: 1px solid var(--blue);
+	outline: none;
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+	text-overflow: wrap;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+    padding: 0px;
+    width: 17.5rem;
+}
+.list-rol2 .ticle-Name-Roles2{
+    margin: 10px 20px;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.list-item-rol{
+    list-style: none;
+}

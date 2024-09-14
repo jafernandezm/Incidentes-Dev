@@ -1,0 +1,131 @@
+.logo {
+    background-color: var(--blue-strong); /* Fondo detrás del logo */
+    margin: auto;
+    width: 80%; /* Ajusta el ancho del contenedor del logo */
+    height: 6rem; /* Altura fija */
+    display: flex;
+    justify-content: center; /* Centra el logo horizontalmente */
+    align-items: center; /* Centra el logo verticalmente */
+}
+
+.logo img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción del logo */
+    object-fit: contain; /* Evita que el logo se deforme */
+}
+
+/* Sidebar principal */
+.sidebar {
+    height: 100vh;
+    width: 25%; /* Tamaño más ajustado */
+    background: var(--blue-clear);
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye los elementos */
+    padding: 1rem;
+}
+
+/* Lista dentro del sidebar */
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Elementos de la lista */
+.sidebar ul li {
+    margin-bottom: 1rem;
+}
+
+/* Estilo para el logo */
+.logo {
+    margin-bottom: 2rem;
+    text-align: center; /* Centrar el logo */
+}
+
+.logo img {
+    width: 80%;
+    height: auto;
+}
+
+/* Estilo para los enlaces */
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    text-decoration: none;
+    color: var(--grey_clear);
+    transition: color 0.3s;
+}
+
+/* Estilo para los íconos */
+.sidebar ul li a .icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: var(--grey_clear);
+}
+
+/* Estilo para el texto del enlace */
+.sidebar ul li a .text {
+    font-family: var(--sf-pro-semibold);
+    font-size: 19px;
+    letter-spacing: 0.05em;
+}
+
+/* Estilo para el estado activo */
+.sidebar ul li.active a {
+    background: var(--white);
+    color: var(--blue-clear);
+    border-radius: 50px 0 0 50px; /* Bordes redondeados */
+}
+
+.sidebar ul li.active a .icon {
+    color: var(--blue-clear);
+}
+
+/* Hover en los elementos del sidebar */
+.sidebar ul li:hover a {
+    color: var(--blue-strong);
+}
+
+/* Estilo para el título del menú */
+.title_gestion {
+    font-family: var(--sf-pro-heavy);
+    color: var(--grey_clear);
+    margin-left: 14%;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+/* Posición del formulario de cerrar sesión */
+.Menulist form {
+    position: fixed;
+    bottom: 4%;
+    left: 2.6%;
+}
+
+/* Estilo del botón de cerrar sesión */
+.button_log_out {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button_log_out .icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    color: var(--grey_clear);
+}
+
+.button_log_out .text {
+    font-family: var(--sf-pro-semibold);
+    font-size: 19px;
+    color: var(--grey_clear);
+}
+
+.button_log_out:hover .icon,
+.button_log_out:hover .text {
+    color: var(--blue-strong);
+}

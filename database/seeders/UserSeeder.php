@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
-
+use App\Models\Tecnico;
 class UserSeeder extends Seeder
 {
     /**
@@ -18,7 +18,21 @@ class UserSeeder extends Seeder
             'name' => 'jhon fernandez',
             'username' => 'warrior',
             'password' => bcrypt('12345678'),
-        ])->assignRole('Admin');
+        ])->assignRole('admin');
+
+
+        User::create([
+            'name' => 'Juan Perez',
+            'username' => 'Juan123',
+            'password' => bcrypt('12345678'),
+        ])->assignRole('tecnico');
+
+        Tecnico::create([
+            'user_id' => 2,
+            'celular' => '83743777',
+            'direccion' => 'Av. America',
+            'ci' => '1234568',
+        ]);
 
     }
 }

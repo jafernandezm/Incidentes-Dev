@@ -1,0 +1,577 @@
+
+.container-users-roles{
+    display: flex;
+	flex-direction: column;
+	color: var(--grey);
+    padding-left: 3.1rem;
+    padding-right: 3.1rem;
+    padding-bottom: 3.1rem;
+}
+
+.labels_etiquetas{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.linea_separacion{
+    width: 100%;
+    height: 1px;
+    background-color: var(--blue);
+    margin-bottom: 1.25rem;
+}
+
+.linea_separacion_2{
+    width: 100%;
+    height: 1px;
+    background-color: var(--blue);
+}
+
+.content_data_label{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 1.25rem;
+}
+
+
+.input-box-label .input_configuracion{
+    width: 90%; 
+	padding: 10px;
+	border: 1px solid var(--blue-clear);
+    border-radius: 10px;
+	outline: none;
+	font-size: 1rem;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.input-box-label .input_configuracion:focus{
+    background-color: transparent;
+}
+
+.button_registrar_etiqueta{
+    background-color: var(--blue-clear);
+	color: var(--white);
+	padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	display: flex;
+	gap: 0.6rem;
+	font-size: 1rem;
+    border: none;
+}
+
+.button_registrar_etiqueta:hover{
+    box-shadow: 0px 0px 0px 0px;
+    cursor: pointer;
+    background-color: var(--blue-strong);
+}
+
+
+.list_title li{
+    list-style: none;
+}
+
+.list_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data_labels{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .7rem;
+}
+.nombre_etiqueta{
+    color: var(--black);
+}
+
+.link_jobs{
+    color: var(--blue);
+}
+
+.link_jobs:hover{
+    color: var(--blue-tag);
+}
+
+.icon_name{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.cantidad_trabajos{
+    width: 20%;
+}
+.icon_nombre_label{
+    margin-right: 1rem;
+}
+
+.operaciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.delete_label,
+.update_label,
+.update_user{
+    display: flex;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background: var(--blue-strong);
+    border-radius: 7px;
+}
+
+.update_user,
+.delete_label:hover,
+.update_label:hover{
+    background-color: var(--blue-strong);
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+
+.linea_separacion_list{
+    width: 100%;
+    height: 1px;
+    background-color: var(--grey);
+    margin-top: .8rem;
+}
+
+.submit_button{
+    background: none; 
+    border: none; 
+    padding: 0; 
+    margin: 0; 
+    cursor: pointer;
+}
+
+.login_style{
+	color: var(--white);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.container_roles_config{
+    margin: 10px;
+    padding: 0px;
+    display: flex;
+    height: max-content;
+}
+
+.container_roles_config-rol{
+    margin: 10px;
+    padding: 0px;
+    display: flex;
+    height: max-content;
+}
+  
+  .list-rol{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    width: 17.5rem;
+    background: var(--blue-strong);
+    list-style: none;
+    overflow: hidden;
+    color: var(--black) !important;
+  }
+  
+  .list-rol .ticle-Name-Roles{
+    margin: 10px 20px;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .list-rol .list-item-rol{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    background: #F6F6F6;
+    border-bottom: 1px solid var(--grey_clear);
+  }
+  
+  .list-rol .list-item-rol:last-child{
+    border: 0px;
+  }
+  
+  
+  .check-label-rol{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .check-label-box-rol{
+    display: flex;
+    align-self: center;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    margin: 0px 20px;
+    cursor: pointer;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+  }
+  
+  .check-label-text-rol{
+    display: flex;
+    align-self: center;
+    position: relative;
+    cursor: pointer;
+    padding: 15px;
+    font-weight: 600;
+  }
+  
+  .hidden-box-rol{
+    opacity: 0px;
+    position: absolute;
+    appearance: none;
+  }
+  
+
+  .hidden-box-rol-rol:checked + .check-label-rol{
+    background: #F1F1F1;
+  }
+  
+  
+  .hidden-box-rol:checked + .check-label-rol .check-label-box-rol{
+    background: #FFF;
+  }
+  
+  .hidden-box-rol:checked + .check-label-rol .check-label-box-rol:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--black);
+    border-width: 0px 2px 2px 0px;
+    transform: rotate(45deg);
+  }
+  
+  .hidden-box-rol:checked + .check-label-rol .check-label-text-rol:after{
+    width: 100%;
+  }
+  
+
+  .info{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info-col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .info-col .dato{
+    font-size: 1.1rem;
+    color: var(--blue);
+  }
+.container-users-roles{
+    display: flex;
+	flex-direction: column;
+	color: var(--grey);
+    padding-left: 3.1rem;
+    padding-right: 3.1rem;
+    padding-bottom: 3.1rem;
+}
+
+.labels_etiquetas{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.linea_separacion{
+    width: 100%;
+    height: 1px;
+    background-color: var(--blue);
+    margin-bottom: 1.25rem;
+}
+
+.linea_separacion_2{
+    width: 100%;
+    height: 1px;
+    background-color: var(--blue);
+}
+
+.content_data_label{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 1.25rem;
+}
+
+
+.input-box-label .input_configuracion{
+    width: 90%; 
+	padding: 10px;
+	border: 1px solid var(--blue-clear);
+    border-radius: 10px;
+	outline: none;
+	font-size: 1rem;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.input-box-label .input_configuracion:focus{
+    background-color: transparent;
+}
+
+.button_registrar_etiqueta{
+    background-color: var(--blue-clear);
+	color: var(--white);
+	padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	display: flex;
+	gap: 0.6rem;
+	font-size: 1rem;
+    border: none;
+}
+
+.button_registrar_etiqueta:hover{
+    box-shadow: 0px 0px 0px 0px;
+    cursor: pointer;
+    background-color: var(--blue-strong);
+}
+
+
+.list_title li{
+    list-style: none;
+}
+
+.list_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data_labels{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .7rem;
+}
+.nombre_etiqueta{
+    color: var(--black);
+}
+
+.link_jobs{
+    color: var(--blue);
+}
+
+.link_jobs:hover{
+    color: var(--blue-tag);
+}
+
+.icon_name{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.cantidad_trabajos{
+    width: 20%;
+}
+.icon_nombre_label{
+    margin-right: 1rem;
+}
+
+.operaciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.delete_label,
+.update_label,
+.update_user{
+    display: flex;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background: var(--blue-strong);
+    border-radius: 7px;
+}
+
+.update_user,
+.delete_label:hover,
+.update_label:hover{
+    background-color: var(--blue-strong);
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+
+.linea_separacion_list{
+    width: 100%;
+    height: 1px;
+    background-color: var(--grey);
+    margin-top: .8rem;
+}
+
+.submit_button{
+    background: none; 
+    border: none; 
+    padding: 0; 
+    margin: 0; 
+    cursor: pointer;
+}
+
+.login_style{
+	color: var(--white);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.container_roles_config{
+    margin: 10px;
+    padding: 0px;
+    display: flex;
+    height: max-content;
+}
+
+.container_roles_config-rol{
+    margin: 10px;
+    padding: 0px;
+    display: flex;
+    height: max-content;
+}
+  
+  .list-rol{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    width: 17.5rem;
+    background: var(--blue-strong);
+    list-style: none;
+    overflow: hidden;
+    color: var(--black) !important;
+  }
+  
+  .list-rol .ticle-Name-Roles{
+    margin: 10px 20px;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .list-rol .list-item-rol{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    background: #F6F6F6;
+    border-bottom: 1px solid var(--grey_clear);
+  }
+  
+  .list-rol .list-item-rol:last-child{
+    border: 0px;
+  }
+  
+  
+  .check-label-rol{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .check-label-box-rol{
+    display: flex;
+    align-self: center;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    margin: 0px 20px;
+    cursor: pointer;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+  }
+  
+  .check-label-text-rol{
+    display: flex;
+    align-self: center;
+    position: relative;
+    cursor: pointer;
+    padding: 15px;
+    font-weight: 600;
+  }
+  
+  .hidden-box-rol{
+    opacity: 0px;
+    position: absolute;
+    appearance: none;
+  }
+  
+
+  .hidden-box-rol-rol:checked + .check-label-rol{
+    background: #F1F1F1;
+  }
+  
+  
+  .hidden-box-rol:checked + .check-label-rol .check-label-box-rol{
+    background: #FFF;
+  }
+  
+  .hidden-box-rol:checked + .check-label-rol .check-label-box-rol:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--black);
+    border-width: 0px 2px 2px 0px;
+    transform: rotate(45deg);
+  }
+  
+  .hidden-box-rol:checked + .check-label-rol .check-label-text-rol:after{
+    width: 100%;
+  }
+  
+
+  .info{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info-col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .info-col .dato{
+    font-size: 1.1rem;
+    color: var(--blue);
+  }

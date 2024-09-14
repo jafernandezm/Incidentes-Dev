@@ -1,7 +1,17 @@
 @import url("common.css");
 
+@import url("sidebar.css");
 
-
+@import url("defecto.css");
 
 @import url("login.css");
 
+
+@import url("header.css");
+
+
+@import url("users.css");
+
+@import url("table_docen.css");
+
+@import url("centro.css");

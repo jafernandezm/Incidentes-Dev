@@ -12,7 +12,10 @@
 		<x-sidebar pagina="{{$pagina}}"></x-sidebar>
 		<div class="main">
 			<x-header title={{$title}}></x-header>
-			{{ $slot }}
+			<div class="centro">
+				{{ $slot }}
+			</div>
+			
 		</div>
 	</div>
 	<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />

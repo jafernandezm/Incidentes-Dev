@@ -1,0 +1,62 @@
+/* Configuración de la grilla para 3 columnas */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; /* Ajusta el espacio entre las tarjetas */
+    margin: 1rem 0;
+}
+
+.card {
+    padding: 1.5rem;
+    background-color: white;
+    border: 1px solid #e5e7eb; /* Tailwind border-gray-200 */
+    border-radius: 0.5rem; /* Tailwind rounded-lg */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Tailwind shadow */
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.card:hover {
+    background-color: #f9fafb; /* Tailwind hover:bg-gray-50 */
+}
+
+.card-title {
+    font-size: 1.125rem; /* Tailwind text-lg */
+    font-weight: 600; /* Tailwind font-semibold */
+    margin-bottom: 1rem; /* Tailwind mb-4 */
+    color: #111827; /* Tailwind text-gray-900 */
+}
+
+.info-box {
+    margin-top: 1rem; /* Tailwind mt-4 */
+    padding: 1rem; /* Tailwind p-4 */
+    background-color: #e5e7eb; /* Tailwind bg-gray-200 */
+    border-radius: 0.5rem; /* Tailwind rounded */
+    overflow: hidden;
+}
+
+.info-title {
+    font-weight: 500; /* Tailwind font-medium */
+    color: #374151; /* Tailwind text-gray-700 */
+}
+
+.info-content {
+    font-size: 0.875rem; /* Tailwind text-sm */
+    color: #4b5563; /* Tailwind text-gray-600 */
+    word-break: break-word; /* Tailwind break-words */
+}
+
+.entry {
+    margin-bottom: 1rem; /* Tailwind mb-4 */
+}
+
+.entry-field {
+    font-weight: 500; /* Tailwind font-medium */
+    color: #374151; /* Tailwind text-gray-700 */
+    word-break: break-word; /* Tailwind break-words */
+}
+
+.entry-field span {
+    color: #4b5563; /* Tailwind text-gray-600 */
+    word-break: break-all; /* Tailwind break-all */
+}

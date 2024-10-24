@@ -1,0 +1,123 @@
+.container-pasivo {
+    margin-top: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 32px; /* Tamaño del título */
+    font-weight: 700; /* Negrita */
+    margin-bottom: 24px; /* Espacio debajo del título */
+    color: #333; /* Color del texto */
+}
+
+.form-container {
+    max-width: 900px; /* Ancho máximo del formulario */
+    padding: 32px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #ddd; /* Borde sutil */
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 20px; /* Espacio entre campos */
+}
+
+@media (min-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    margin-bottom: 6px; /* Espacio debajo de la etiqueta */
+}
+
+.form-group input {
+    padding: 12px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna */
+}
+
+.input-button-group {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+}
+
+.input-button-group input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 12px; /* Espaciado interno */
+}
+
+.input-button-group button {
+    padding: 12px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #3b82f6; /* Color de fondo azul */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 0 8px 8px 0; /* Bordes redondeados solo a la derecha */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    margin-left: 10px; /* Añade un margen a la izquierda para separación */
+}
+
+.input-button-group button:hover {
+    background-color: #2563eb; /* Color más oscuro al pasar el ratón */
+}
+
+.submit-buttonPasivo {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit-buttonPasivo button {
+    padding: 14px 24px; /* Espaciado interno */
+    font-size: 18px; /* Tamaño de fuente */
+    background-color: #ef4444; /* Color de fondo rojo */
+    color: #fff; /* Color del texto */
+    border: 2px solid #ef4444; /* Borde con el mismo color que el fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave para los cambios */
+}
+
+.submit-buttonPasivo button:hover {
+    background-color: #d32f2f; /* Color más oscuro al pasar el ratón */
+    border-color: #d32f2f; /* Cambia el color del borde al pasar el ratón */
+}
+
+ul.exclude-sites-list {
+    margin-top: 16px;
+    padding: 0;
+    list-style: none; /* Sin viñetas */
+}
+
+ul.exclude-sites-list li {
+    padding: 12px; /* Espaciado interno */
+    background-color: #f3f4f6; /* Fondo gris claro */
+    margin-bottom: 6px; /* Espacio entre elementos */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}

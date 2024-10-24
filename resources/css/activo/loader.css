@@ -1,0 +1,29 @@
+/* Loader Styles */
+.loader-container {
+    display: none;
+    position: fixed; /* Utiliza 'fixed' para asegurar que el loader esté siempre en la pantalla */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    display: flex; /* Centra el contenido del loader */
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader {
+    /* Agrega tu animación de loader aquí */
+    margin-bottom: 0.5rem;
+}
+
+.loader p {
+    color: #ffffff;
+    margin-top: 0;
+}

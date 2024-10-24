@@ -92,4 +92,43 @@ class UserController extends Controller
 
         return redirect()->route('admin.users');
     }
+
+    public function mostrarPerfil(string $id)
+    {
+        $usuario = User::findOrFail($id);
+        return view('perfil', compact('usuario'));
+    }
+    
+    public function actualizarPerfil(Request $request, string $id)
+    {
+        // Validar los campos
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'password' => 'nullable|string|min:8',
+            'apikey' => 'nullable|string|max:255', // Validar que la API Key sea opcional y de máximo 255 caracteres
+        ]);
+    
+        // Buscar el usuario por ID
+        $usuario = User::findOrFail($id);
+    
+        // Actualizar el nombre de usuario
+        $usuario->username = $request->input('username');
+    
+        // Si el campo de contraseña está lleno, encriptar y actualizar la contraseña
+        if ($request->filled('password')) {
+            $usuario->password = bcrypt($request->input('password'));
+        }
+    
+        // Si el campo de API Key está lleno, actualizar la API Key
+        if ($request->filled('api_key')) {
+            $usuario->api_key = $request->input('api_key');
+        }
+    
+        // Guardar los cambios en la base de datos
+        $usuario->save();
+    
+        // Redirigir al perfil actualizado
+        return redirect()->route('perfil', ['id' => $usuario->id]);
+    }
+    
 }

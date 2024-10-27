@@ -34,11 +34,11 @@ class RolSeeder extends Seeder
         Permission::create(['name' => 'escaneo.index'])->syncRoles([$role1, $role2, $role3]);
         Permission::create(['name' => 'escaneo.enviar'])->syncRoles([$role1, $role2, $role3]);
         //filtracion
-
+        // activo
         Permission::create(['name' => 'activo'])->syncRoles([$role1, $role2, $role3]);
         Permission::create(['name' => 'activo.index'])->syncRoles([$role1, $role2, $role3]);
         Permission::create(['name' => 'activo.scanWebsite'])->syncRoles([$role1, $role2, $role3]);
-
+        //pasivo
         Permission::create(['name' => 'pasivo.index'])->syncRoles([$role1, $role2, $role3]);
         Permission::create(['name' => 'pasivo'])->syncRoles([$role1, $role2, $role3]);
         Permission::create(['name' => 'pasivo.scanWebsite'])->syncRoles([$role1, $role2, $role3]);

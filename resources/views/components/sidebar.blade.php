@@ -5,7 +5,6 @@
     <ul>
         <div class="logo"><img src="{{url('/')}}/img/logo-agetic.jpg" alt=""></div>
         <div class="Menulist">
-            <h2 class="title_gestion">Proyecto</h2>
   
             @can('temas')
             <li style="--bg:#2196f3;" @if($pagina == 'temas') class="active" @endif>

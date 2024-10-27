@@ -24,7 +24,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Distribuye los elementos */
-    padding: 1rem;
+    padding: 1rem 0;
+    padding-left: 1rem;
 }
 
 /* Lista dentro del sidebar */

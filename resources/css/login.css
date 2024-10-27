@@ -155,15 +155,6 @@
 	background: var(--blue-strong);
 }  
 
-#togglePassword{
-    position: absolute;
-    left: 90%;
-    bottom: 0;
-    cursor: pointer;
-}
-
-
-
 .message_login{
 	padding-top: 1.5rem;
 	color: var(--red);

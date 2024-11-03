@@ -51,9 +51,6 @@
                                                 <a class="btn2  btn2-primary "
                                                     href="{{ route('incidente.edit', $incidente->id) }}"><i
                                                         class="fas fa-edit"></i></a>
-                                                <a class="btn2  btn2-primary "
-                                                    href="{{ route('incidente.show', $incidente->id) }}"><i
-                                                        class="fas fa-eye"></i></a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn2 btn-danger2  btn2-primary"

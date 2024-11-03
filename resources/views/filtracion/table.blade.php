@@ -7,7 +7,7 @@
                 <div class="results-box">
                     <div class="results-content">
                         <div class="mt-4">
-                            <h2 class="results-title">Resultados de los Datos Filtrados:</h2>
+                            <h2 class="results-title">Resultados de los Datos Filtrados</h2>
                             @component('components.filtracion.table', ['resultados' => $resultados])
                             @endcomponent
                         </div>

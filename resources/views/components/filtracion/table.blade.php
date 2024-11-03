@@ -12,13 +12,13 @@
 
             @if (!empty($datos[0]['informacion']))
                 <div class="info-box">
-                    <p class="info-title">Información adicional:</p>
-                    <p class="info-content">{{ $datos[0]['informacion'] }}</p>
+                    <p class="info-title">Información adicional: <span class="info-content">{{ $datos[0]['informacion'] }}</span></p>
+                    
                 </div>
             @endif
 
             @foreach ($datos as $result)
-                <div class="info-box">
+                <div class="cards-filters">
                     @php
                         $data = json_decode($result['data'], true);
                     @endphp
@@ -27,6 +27,7 @@
                         @if (!empty($data))
                             @foreach ($data as $entry)
                                 <div class="entry">
+                                    <div class="number-entry"> @if ( $loop->iteration < 10 ) 0{{ $loop->iteration }} @else {{ $loop->iteration }} @endif </div>
                                     @if (isset($entry['email']))
                                         <p class="entry-field">Email: <span>{{ $entry['email'] }}</span></p>
                                     @endif

@@ -1,62 +1,104 @@
 /* Configuración de la grilla para 3 columnas */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; /* Ajusta el espacio entre las tarjetas */
-    margin: 1rem 0;
-}
+.grid-container {}
+
 
 .card {
-    padding: 1.5rem;
-    background-color: white;
-    border: 1px solid #e5e7eb; /* Tailwind border-gray-200 */
-    border-radius: 0.5rem; /* Tailwind rounded-lg */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Tailwind shadow */
-    overflow: hidden;
-    transition: background-color 0.2s ease;
-}
-
-.card:hover {
-    background-color: #f9fafb; /* Tailwind hover:bg-gray-50 */
+    border: 1px solid var(--black);
+    padding: 32px;
 }
 
 .card-title {
-    font-size: 1.125rem; /* Tailwind text-lg */
-    font-weight: 600; /* Tailwind font-semibold */
-    margin-bottom: 1rem; /* Tailwind mb-4 */
-    color: #111827; /* Tailwind text-gray-900 */
+    font-size: 1.2rem;
+    /* Tailwind text-lg */
+    font-weight: 600;
+    /* Tailwind font-semibold */
+    margin-bottom: 1rem;
+    /* Tailwind mb-4 */
+    color: var(--black)
+        /* Tailwind text-gray-900 */
+}
+
+.results-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
 }
 
 .info-box {
-    margin-top: 1rem; /* Tailwind mt-4 */
-    padding: 1rem; /* Tailwind p-4 */
-    background-color: #e5e7eb; /* Tailwind bg-gray-200 */
-    border-radius: 0.5rem; /* Tailwind rounded */
     overflow: hidden;
+    color: var(--black);
+    /* Tailwind text-gray-900 */
 }
 
 .info-title {
-    font-weight: 500; /* Tailwind font-medium */
-    color: #374151; /* Tailwind text-gray-700 */
+    font-weight: 600;
+    /* Tailwind font-medium */
+    color: var(--black);
+    /* Tailwind text-gray-700 */
+    margin-bottom: 1rem;
+    /* Tailwind mb-4 */
+    font-size: 1.1rem;
+    /* Tailwind text-base */
 }
 
 .info-content {
-    font-size: 0.875rem; /* Tailwind text-sm */
-    color: #4b5563; /* Tailwind text-gray-600 */
-    word-break: break-word; /* Tailwind break-words */
+    font-weight: 400;
+    font-size: 1rem;
+    /* Tailwind text-sm */
+    color: var(--black);
+    /* Tailwind text-gray-900 */
+}
+
+.cards-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cards-filters>.entry {
+    flex: 1 1 calc(50% - 1rem);
+
 }
 
 .entry {
-    margin-bottom: 1rem; /* Tailwind mb-4 */
+    position: relative;
+    padding: 1.5rem;
+    background-color: var(--white-strong);
+    border-left: 30px solid var(--blue-strong);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.40);
+    opacity: 0.5;
+    transition: all 0.6s ease;
+}
+
+.number-entry {
+    position: absolute;
+    top: 8%;
+    left: -4%;
+    width: max-content;
+    padding: 2%;
+    background-color: var(--blue-strong);
+    color: var(--white-strong);
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.40);
+}
+
+.entry:hover {
+    opacity: 1;
+    scale: 1.04;
+    cursor: pointer;
 }
 
 .entry-field {
-    font-weight: 500; /* Tailwind font-medium */
-    color: #374151; /* Tailwind text-gray-700 */
-    word-break: break-word; /* Tailwind break-words */
+    font-weight: 500;
+    /* Tailwind font-medium */
+    color: #374151;
+    /* Tailwind text-gray-700 */
+    word-break: break-word;
+    /* Tailwind break-words */
 }
 
 .entry-field span {
-    color: #4b5563; /* Tailwind text-gray-600 */
-    word-break: break-all; /* Tailwind break-all */
+    color: #4b5563;
+    /* Tailwind text-gray-600 */
+    word-break: break-all;
+    /* Tailwind break-all */
 }

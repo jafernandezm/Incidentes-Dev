@@ -93,6 +93,14 @@ class IncidenteSeeder extends Seeder
                 'contenido' => '<b>Hacked By ./Outsiders</b>',
                 'descripcion' => 'HTML infectado',
                 'fecha' => '2024-06-22'
+              ],
+              //intext:"hacked by ./outsiders" site:.bo
+              //tipo3
+              [
+                'tipo_id' => 3,
+                'contenido' => 'intext:"hacked by ./outsiders" site:.bo',
+                'descripcion' => 'dorksPasivo',
+                'fecha' => '2024-06-22'
               ]
           ];
           \App\Models\Incidente::factory()->createMany($incidentes);

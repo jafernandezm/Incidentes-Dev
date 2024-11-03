@@ -13,7 +13,7 @@ class IncidenteController extends Controller
     {
         $incidentes = Incidente::all();
         $incidentes->load('tipo');
-        //dd($incidentes);
+       // dd($incidentes);
         return view('incidente.index', [
             'incidentes' => $incidentes,
         

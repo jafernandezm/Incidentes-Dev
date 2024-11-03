@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('resultado');
             $table->json('detalles')->nullable();
+            $table->enum('estado', ['reportar', 'no reportar', 'procesar'])->default('procesar');
             $table->timestamps();         
         });
     }

@@ -21,7 +21,6 @@ class PasivoController extends Controller
 
     public function scanWebsite(PasivoRequest $request)
     {
-
         $Busqueda = new BusquedaGoogle();
         $ataqueSeoJapones = new AtaqueSeoJapones();
         $numResultsControl = $request->cantidad;
@@ -74,5 +73,62 @@ class PasivoController extends Controller
             'escaneo' => $escaneo,
             'detalles' => $detalles
         ]);
+    }
+
+    
+    public function scanWebsiteHora($requestDorks, $requestnumResultsControl=10)
+    {
+        $Busqueda = new BusquedaGoogle();
+        $ataqueSeoJapones = new AtaqueSeoJapones();
+        $numResultsControl = $requestnumResultsControl;
+        $dorks = $requestDorks;
+        $query = trim($dorks);
+        // if (!empty($request->excludeSitesHidden)) {
+        //     $excludedSites = array_map(function ($site) {
+        //         return '-site:' . trim($site);
+        //     }, explode(',', $request->excludeSitesHidden));
+        //     $query .= ' ' . implode(' ', $excludedSites);
+        // }
+        $resultados = $Busqueda->googleSearch($queries = [$query], $timeout = 30, $numResults = $numResultsControl);
+        //$ataqueSeoJaponesTodo = $ataqueSeoJapones->AtaqueSeoJapones($resutaldos);
+        // Procesamos el ataque SEO Japonés
+        $ataqueSeoJaponesTodo = $ataqueSeoJapones->AtaqueSeoJapones($resultados);
+        //dd($ataqueSeoJaponesTodo);
+        $ataqueSeoJaponesResults = $ataqueSeoJaponesTodo['results'] ?? [];
+        $ataqueSeoJaponesData = $ataqueSeoJaponesTodo['data'] ?? [];
+
+        // Contamos los resultados
+        $contadoResultado = count($ataqueSeoJaponesResults);
+
+        // Creamos el escaneo
+        $escaneo = new Escaneo;
+        $escaneo->url = $requestDorks;
+        $escaneo->tipo = 'PASIVO';
+        $escaneo->fecha = date('Y-m-d H:i:s');
+        $escaneo->resultado = $contadoResultado;
+
+        // Si hay data y resultados, guardamos ambos
+        if (!empty($ataqueSeoJaponesData) && $contadoResultado > 0) {
+            $escaneo->detalles = json_encode($ataqueSeoJaponesData);
+            $escaneo->save();
+
+            // Crear el resultado solo si hay datos y resultados
+            $resultado = new ResultadoEscaneo();
+            $resultado->escaneo_id = $escaneo->id;
+            $resultado->url = $requestDorks;
+            $resultado->detalle = 'Ataque SEO Japonés';
+            $resultado->data = json_encode($ataqueSeoJaponesResults);
+            $resultado->save();
+        } else {
+            // Si no hay datos ni resultados, solo guardamos el escaneo
+            $escaneo->detalles = json_encode($ataqueSeoJaponesData);
+            $escaneo->save();
+        }
+        //devolver si se encontro algo
+        if($contadoResultado > 0){
+            $escaneo = Escaneo::where('id', $escaneo->id)->first();
+            return $escaneo;
+        }
+        return [];   
     }
 }

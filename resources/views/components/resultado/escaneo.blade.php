@@ -41,6 +41,7 @@
                     <form action="{{ route('escaneo.show', ['id' => $escaneo->id]) }}" method="GET">
                         <button type="submit" class="ver-boton">Ver</button>
                     </form>
+  
                 </div>
             </div>
 

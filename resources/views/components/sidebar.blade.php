@@ -3,10 +3,10 @@
 @endphp
 <div class="sidebar">
     <ul>
-        <div class="logo"><img src="{{url('/')}}/img/logo-agetic.jpg" alt=""></div>
+        <div class="logo">
+            <img src="{{url('/')}}/img/Logotipo-AGETIC-blanco.png" alt="">
+        </div>
         <div class="Menulist">
-            <h2 class="title_gestion">Proyecto</h2>
-  
             @can('temas')
             <li style="--bg:#2196f3;" @if($pagina == 'temas') class="active" @endif>
                 <a href="{{ route('temas') }}">
@@ -20,7 +20,7 @@
             <li style="--bg:#2196f3;" @if($pagina == 'usuarios') class="active" @endif>
                 <a href="{{ route('admin.users') }}">
                     <div class="icon"><i class="fa-solid fa-users"></i></div> 
-                    <div class="text">usuarios</div>
+                    <div class="text">Usuarios</div>
                 </a>
             </li>
             @endcan
@@ -52,7 +52,7 @@
             @can('escaneo.index')
             <li style="--bg:#2196f3;" @if($pagina == 'resultados') class="active" @endif>
                 <a href="{{ route('escaneo.index') }}">
-                    <div class="icon"><i class="fa-solid fa-exclamation-circle"></i></div> <!-- Cambiado a 'fa-exclamation-circle' -->
+                    <div class="icon"><i class="fa-solid fa-list-alt"></i></div> <!-- Cambiado a 'fa-exclamation-circle' -->
                     <div class="text">Resultados</div>
                 </a>
             </li>
@@ -60,12 +60,16 @@
             @can('incidente.index')
             <li style="--bg:#2196f3;" @if($pagina == 'incidente') class="active" @endif>
                 <a href="{{ route('incidente.index') }}">
-                    <div class="icon"><i class="fa-solid fa-exclamation-circle"></i></div> <!-- Cambiado a 'fa-exclamation-circle' -->
+                    <div class="icon"><i class="fa-solid fa-exclamation-triangle"></i></div> <!-- Cambiado a 'fa-exclamation-circle' -->
                     <div class="text">Incidente Registrados</div>
                 </a>
             </li>
-            @endcan
+           
+        </div>
+        <div class="logout">
+        @endcan
             @if(Auth::check())
+        
                 <form action="{{ route('logout')}}" method="POST">
                     @csrf
                     <button type="submit"  style="background: none; border: none; cursor: pointer;">
@@ -75,6 +79,7 @@
                         </div>
                     </button>
                 </form>
+            
             @endif
         </div>
     </ul>

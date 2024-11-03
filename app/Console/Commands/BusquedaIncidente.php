@@ -36,6 +36,7 @@ class BusquedaIncidente extends Command
                 try {
                     // Envía el correo con el objeto incidente y el escaneoResultado
                     $resultados = ResultadoEscaneo::where('escaneo_id',$escaneoResultado->id)->get();
+                    
                     Mail::to('contacto@agetic.gob.bo')->send(new ResportMailable($incidente, $escaneoResultado, $resultados));   
                     $this->info("Correo enviado para el incidente con ID {$incidente->id}");
                 } catch (\Exception $e) {

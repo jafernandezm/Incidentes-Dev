@@ -39,11 +39,19 @@
     border-bottom: 1px solid #ddd;
 }
 
+.tableR th:last-child {
+    text-align: center;
+}
+
 .tableR td {
     
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+
+.tableR td:last-child {
+    text-align: center;
 }
 
 .centered-form {
@@ -68,7 +76,6 @@
 	padding: 6px 10px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
 	width: 38px;
   	height: 29px;
 }
@@ -103,11 +110,11 @@
 	padding: 5px 10px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
 	width: 10px;
   	height: 10px;
     margin-right: 15px;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 
 .btn_right:hover {
@@ -168,6 +175,7 @@
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 1.3rem;
 }
 
 /* Input and Select Styles */
@@ -176,15 +184,12 @@
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 10px;
     box-sizing: border-box;
     transition: border-color 0.3s;
 }
 
 .form-control:focus {
-    border-color: #66afe9;
     outline: none;
-    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
 /* Custom Select Styles */
@@ -199,13 +204,11 @@
 
 /* Password Container Styles */
 .password-container {
+    width: 100%;
+    height: auto;
     position: relative;
     display: flex;
     align-items: center;
-}
-
-.password-container input {
-    flex: 1;
 }
 
 .password-container .toggle-password {
@@ -213,7 +216,7 @@
     right: 10px;
     background: none;
     border: none;
-    font-size: 0.9em;
+    font-size: .9rem;
     color: #007bff;
     cursor: pointer;
 }
@@ -228,22 +231,22 @@
     font-size: 80%;
 }
 
-
 /* Submit Button Styles */
-/* .input_enviar {
+.input_enviar {
     display: inline-block;
-    background-color: #313a4b;
+    background-color: var(--blue-clear);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    font-size: 1.1rem;
 }
 
 .input_enviar:hover {
-    background-color: #223457;
-} */
+    background-color: var(--blue-strong);
+}
 
 
 
@@ -262,30 +265,25 @@
     display: flex;
     height: max-content;
 }
+
+
 .list-rol2{
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    margin-left: 33%;
-    padding: 0px;
-    width: 17.5rem;
+    width: calc(50% - .6rem);
 }
+
 
 .list-rol23{
     display: flex;
-    flex-direction: column;
-    padding: 1rem 1.5rem;
+    justify-content: space-between;
 	box-sizing: border-box;
 	border: 1px solid var(--blue);
 	outline: none;
 	font-size: 1.2rem;
-	margin-bottom: 1rem;
 	text-overflow: wrap;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-	border-radius: 10px;
-    padding: 0px;
-    width: 17.5rem;
 }
+
+
 .list-rol2 .ticle-Name-Roles2{
     margin: 10px 20px;
     color: var(--white);

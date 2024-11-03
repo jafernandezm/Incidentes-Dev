@@ -8,8 +8,7 @@
 <div class="content_data_documento">
     <form action="{{ route('incidente.store') }}" method="POST">
         @csrf
-        <fieldset>
-            <legend>Datos del Incidente</legend>
+
             <div class="detalles_documento">
                 <div class="input-box-documento">
                     <label for="tipo_id" class="label">Tipo de Incidente</label>
@@ -29,7 +28,6 @@
                     <textarea name="descripcion" class="form-control" id="descripcion" placeholder="Descripción" required></textarea>
                 </div>
             </div>
-        </fieldset>
         <div class="col-md-12 mt20 mt-2">
             <button type="submit" class="input_enviar">Enviar</button>
         </div>

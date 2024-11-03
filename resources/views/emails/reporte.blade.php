@@ -63,6 +63,7 @@
             <li><strong>Tipo:</strong> {{ $escaneoResultado->tipo }}</li>
             <li><strong>Estado:</strong> {{ $escaneoResultado->estado }}</li>
             <li><strong>Consulta:</strong> {{ $escaneoResultado->url }}</li>
+            
             <li><strong>URL</strong> {{ $resultados['url'] }}</li>
         </ul>
         <p>Para más información, haga clic en el botón a continuación:</p>

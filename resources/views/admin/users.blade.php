@@ -46,7 +46,7 @@
                                             <form class="centered-form" action="{{ route('admin.destroy', $tecnico->id) }}" method="POST">
 
                                                 <a class="btn2  btn2-primary " href="{{ route('admin.edit', $tecnico->id) }}" ><i class="fas fa-edit"></i></a>
-                                                <a class="btn2  btn2-primary " href="{{ route('admin.show', $tecnico->id) }}"><i class="fas fa-eye"></i></a>
+                                                <!-- <a class="btn2  btn2-primary " href="{{ route('admin.show', $tecnico->id) }}"><i class="fas fa-eye"></i></a> -->
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn2 btn-danger2  btn2-primary" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa-solid fa-trash-can"></i></button>

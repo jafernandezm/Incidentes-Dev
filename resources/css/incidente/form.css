@@ -1,26 +1,21 @@
    /* Estilos CSS aquí */
-   .input-box-documento {
-    margin-bottom: 20px;
-}
 
-.label {
-    font-weight: bold;
-}
+   .form-control {
+       background-color: transparent;
+       border: 1px solid var(--black);
+       width: 100%;
+       padding: 12px;
+       font-size: 16px;
+       resize: vertical;
+       overflow-x: hidden;
+       white-space: nowrap;
+       width: 100%;
+       outline: none;
+   }
 
-.form-control {
-    width: 100%;
-    padding: 5px;
-    font-size: 16px;
-}
 
-.invalid-feedback {
-    color: red;
-}
 
-.input_enviar {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
+   .invalid-feedback {
+       color: red;
+   }
+

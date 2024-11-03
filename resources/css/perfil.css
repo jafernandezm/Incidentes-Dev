@@ -1,14 +1,11 @@
 .container_estudiantes {
-    margin-top: 20px;
-    padding: 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 h1 {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 20px;
     color: #333;
 }
@@ -16,24 +13,9 @@ h1 {
 .container_createe {
     width: 100%;
     max-width: 700px;
-    background-color: #fff;
     padding: 24px;
-    border-radius: 12px;
+    border: 1px solid var(--black);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-fieldset {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-legend {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    padding: 0 10px;
 }
 
 .mb-3 {
@@ -50,30 +32,11 @@ legend {
 
 .form-control {
     width: 100%;
+    background-color: transparent;
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    border: 1px solid var(--black);
     font-size: 16px;
     color: #333;
+    outline: none;
 }
 
-.form-control:focus {
-    border-color: #007bff;
-    background-color: #fff;
-}
-
-.btn-crear {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 24px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-crear:hover {
-    background-color: #0056b3;
-}

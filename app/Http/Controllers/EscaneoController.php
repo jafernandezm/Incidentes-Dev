@@ -112,7 +112,7 @@ class EscaneoController extends Controller
     {
         // Encuentra los resultados del escaneo basados en el 'id' enviado
         $resultados = ResultadoEscaneo::where('escaneo_id', $id)->get();
-        dd($resultados);
+        //dd($resultados);
         return view('resultado.card', [
             'resultados' => $resultados
         ]);

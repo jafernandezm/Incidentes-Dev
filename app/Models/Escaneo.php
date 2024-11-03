@@ -14,7 +14,7 @@ class Escaneo extends Model
     use HasFactory;
     use HasUuids;
     protected $fillable = ['url','tipo','fecha','resultado'
-    ,'detalles'];
+    ,'detalles','estado'];
     public function resultados()
     {   
         // Relación uno a muchos

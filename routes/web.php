@@ -26,20 +26,25 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users/{tecnico}/edit', [UserController::class, 'edit'])->middleware('can:admin.edit')->name('admin.edit');
     Route::put('/users/{tecnico}', [UserController::class, 'update'])->middleware('can:admin.update')->name('admin.update');
     Route::delete('/users/{tecnico}', [UserController::class, 'destroy'])->middleware('can:admin.destroy')->name('admin.destroy');
-
+    //activo
     Route::get('/activo', [ActivoController::class, 'index'])->middleware('can:activo.index')->name('activo.index');
     Route::post('/activo', [ActivoController::class, 'scanWebsite'])->middleware('can:activo.scanWebsite')->name('activo.scanWebsite');
-
+    //pasivo
     Route::get('/pasivo', [PasivoController::class, 'index'])->middleware('can:pasivo.index')->name('pasivo.index');
     Route::post('/pasivo', [PasivoController::class, 'scanWebsite'])->middleware('can:pasivo.scanWebsite')->name('pasivo.scanWebsite');
-
-
+    //escaneo
     Route::get('/escaneo', [EscaneoController::class, 'index'])->middleware('can:admin.create')->name('escaneo.index');
     Route::get('/escaneo/enviar/{id}', [EscaneoController::class, 'enviar'])->middleware('can:admin.create')->name('escaneo.enviar');
     Route::get('/escaneo/enviar/{id}/ver', [EscaneoController::class, 'show'])->middleware('can:admin.create')->name('escaneo.show');
+    //pdf
+    Route::post('escaneo/reportar-estado', [EscaneoController::class, 'reportarEstado'])->name('escaneo.reportarEstado');
+ 
+    Route::get('/escaneo/enviar/{id}/pdf', [EscaneoController::class, 'pdf'])->middleware('can:admin.create')->name('escaneo.pdf');
+    
+    
     #Route::get('/escaneo/enviar', [EscaneoController::class, 'enviar'])->name('escaneo.enviar');
     //Route::post('/escaneo/enviar', [EscaneoController::class, 'enviar'])->name('escaneo.enviar');
-
+    //filtracion
     Route::get('/filtracion', [FiltracionController::class, 'index'])->middleware('can:admin.create')->name('filtracion.index');
     Route::post('/filtracion', [FiltracionController::class, 'store'])->middleware('can:admin.create')->name('filtracion.store');
 

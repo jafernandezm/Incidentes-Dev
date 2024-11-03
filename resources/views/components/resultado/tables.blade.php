@@ -1,5 +1,7 @@
 <style>
     .estado {
+        min-width: max-content;
+        width: 60%;
         display: inline-block;
         padding: 0.5rem 1rem;
         /* Aumenta el espacio interior */
@@ -7,7 +9,6 @@
         /* Aumenta el tamaño de la fuente */
         font-weight: 700;
         /* Aumenta el peso de la fuente para negritas más notorias */
-        border-radius: 9999px;
         /* Redondea los bordes */
         text-transform: uppercase;
         /* Opcional: convierte el texto a mayúsculas para mejor visibilidad */
@@ -59,7 +60,6 @@
     font-weight: 600;
     color: white;
     border: none;
-    border-radius: 8px; /* Bordes más redondeados */
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos de transición */
@@ -91,7 +91,6 @@
     padding: 10px 20px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de fuente */
     font-weight: bold;
-    border-radius: 8px; /* Bordes redondeados */
     transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
     min-width: 120px; /* Ancho mínimo */
 }

@@ -1,35 +1,16 @@
-.logo {
-    background-color: var(--blue-strong); /* Fondo detrás del logo */
-    margin: auto;
-    width: 80%; /* Ajusta el ancho del contenedor del logo */
-    height: 6rem; /* Altura fija */
-    display: flex;
-    justify-content: center; /* Centra el logo horizontalmente */
-    align-items: center; /* Centra el logo verticalmente */
-}
-
-.logo img {
-    width: 100%;
-    height: auto; /* Mantiene la proporción del logo */
-    object-fit: contain; /* Evita que el logo se deforme */
-}
-
 /* Sidebar principal */
 .sidebar {
     height: 100vh;
-    width: 25%; /* Tamaño más ajustado */
+    width: 25%;
     background: var(--blue-clear);
     position: sticky;
     top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribuye los elementos */
-    padding: 1rem 0;
-    padding-left: 1rem;
+    left: 0;
 }
 
 /* Lista dentro del sidebar */
 .sidebar ul {
+    height: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -40,24 +21,13 @@
     margin-bottom: 1rem;
 }
 
-/* Estilo para el logo */
-.logo {
-    margin-bottom: 2rem;
-    text-align: center; /* Centrar el logo */
-}
-
-.logo img {
-    width: 80%;
-    height: auto;
-}
-
 /* Estilo para los enlaces */
 .sidebar ul li a {
     display: flex;
     align-items: center;
     padding: 0.8rem 1.2rem;
     text-decoration: none;
-    color: var(--grey_clear);
+    color: var(--clr);
     transition: color 0.3s;
 }
 
@@ -65,7 +35,7 @@
 .sidebar ul li a .icon {
     font-size: 1.5rem;
     margin-right: 1rem;
-    color: var(--grey_clear);
+    color: var(--clr);
 }
 
 /* Estilo para el texto del enlace */
@@ -79,7 +49,8 @@
 .sidebar ul li.active a {
     background: var(--white);
     color: var(--blue-clear);
-    border-radius: 50px 0 0 50px; /* Bordes redondeados */
+    border-radius: 50px 0 0 50px;
+    /* Bordes redondeados */
 }
 
 .sidebar ul li.active a .icon {
@@ -100,11 +71,38 @@
     font-size: 22px;
 }
 
+.logo {
+    width: 100%;
+    height: auto;
+    padding: .5rem 2rem .5rem 1rem;
+    background-color: var(--blue-strong);
+    border: 2px solid var(--white);
+    text-align: center;
+}
+
+.logo img {
+    width: 90%;
+    height: auto;
+}
+
+.Menulist {
+    height: auto;
+    padding: 2rem 0 0 1rem;
+}
+
+
+.logout {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0 0 1rem 1rem;
+}
+
 /* Posición del formulario de cerrar sesión */
-.Menulist form {
-    position: fixed;
-    bottom: 4%;
-    left: 2.6%;
+.logout form {
+    margin: 0.8rem 1.2rem;
 }
 
 /* Estilo del botón de cerrar sesión */
@@ -117,13 +115,13 @@
 .button_log_out .icon {
     font-size: 1.5rem;
     margin-right: 0.5rem;
-    color: var(--grey_clear);
+    color: var(--clr);
 }
 
 .button_log_out .text {
     font-family: var(--sf-pro-semibold);
     font-size: 19px;
-    color: var(--grey_clear);
+    color: var(--clr);
 }
 
 .button_log_out:hover .icon,

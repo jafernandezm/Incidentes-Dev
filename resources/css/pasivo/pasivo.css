@@ -1,123 +1,157 @@
-.container-pasivo {
-    margin-top: 20px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.title {
-    font-size: 32px; /* Tamaño del título */
-    font-weight: 700; /* Negrita */
-    margin-bottom: 24px; /* Espacio debajo del título */
-    color: #333; /* Color del texto */
-}
-
 .form-container {
-    max-width: 900px; /* Ancho máximo del formulario */
-    padding: 32px; /* Espaciado interno */
-    background-color: #fff; /* Fondo blanco */
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    border: 1px solid #ddd; /* Borde sutil */
+    width: 100%;
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Una columna por defecto */
-    gap: 20px; /* Espacio entre campos */
+.form-flex {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-@media (min-width: 640px) {
-    .form-grid {
-        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
-    }
-}
 
 .form-group {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: end;
 }
 
 .form-group label {
-    font-size: 16px; /* Tamaño de fuente */
-    color: #333; /* Color del texto */
-    margin-bottom: 6px; /* Espacio debajo de la etiqueta */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    color: #333;
+    /* Color del texto */
+    margin-bottom: 6px;
+    /* Espacio debajo de la etiqueta */
 }
 
 .form-group input {
-    padding: 12px; /* Espaciado interno */
-    border: 1px solid #ccc; /* Borde suave */
-    border-radius: 8px; /* Bordes redondeados */
-    background-color: #fff; /* Fondo blanco */
-    font-size: 16px; /* Tamaño de fuente */
-    color: #333; /* Color del texto */
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna */
+    font-size: 16px;
+    /*Tamañodefuente*/padding: 12px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid var(--black);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.form-group input:focus {
+    outline: none;
+}
+
+.form-group:first-child {
+    width: 15%;
+}
+
+.form-group:nth-child(2) {
+    width: calc(85% - 30px);
+}
+
+.form-group:nth-child(3) {
+    width: 80%;
+}
+
+.form-group:last-child {
+    width: calc(20% - 30px);
+
 }
 
 .input-button-group {
+    position: relative;
     display: flex;
-    align-items: center; /* Alinea verticalmente los elementos al centro */
+    align-items: center;
+    /* Alinea verticalmente los elementos al centro */
 }
 
 .input-button-group input {
     flex: 1;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    font-size: 16px; /* Tamaño de fuente */
-    padding: 12px; /* Espaciado interno */
+    font-size: 16px;
+    padding: 12px;
 }
 
-.input-button-group button {
-    padding: 12px 20px; /* Espaciado interno */
-    font-size: 16px; /* Tamaño de fuente */
-    background-color: #3b82f6; /* Color de fondo azul */
-    color: #fff; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 0 8px 8px 0; /* Bordes redondeados solo a la derecha */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s; /* Transición suave para el color de fondo */
-    margin-left: 10px; /* Añade un margen a la izquierda para separación */
+.operation-button-pasivo {
+    padding: 0 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
 }
 
-.input-button-group button:hover {
-    background-color: #2563eb; /* Color más oscuro al pasar el ratón */
+.operation-button-pasivo i {
+    font-size: 1.5rem;
+    color: var(--blue-clear);
+    cursor: pointer;
 }
 
-.submit-buttonPasivo {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
+.operation-button-pasivo i:hover {
+    font-size: 1.5rem;
+    color: var(--blue-strong);
 }
 
-.submit-buttonPasivo button {
-    padding: 14px 24px; /* Espaciado interno */
-    font-size: 18px; /* Tamaño de fuente */
-    background-color: #ef4444; /* Color de fondo rojo */
-    color: #fff; /* Color del texto */
-    border: 2px solid #ef4444; /* Borde con el mismo color que el fondo */
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s, border-color 0.3s; /* Transición suave para los cambios */
+.operation-button-pasivo:nth-child(1) {
+    padding: 0;
+    margin-left: 1rem;
 }
 
-.submit-buttonPasivo button:hover {
-    background-color: #d32f2f; /* Color más oscuro al pasar el ratón */
-    border-color: #d32f2f; /* Cambia el color del borde al pasar el ratón */
+.operation-button-pasivo:nth-child(1) i {
+    color: red
 }
+
 
 ul.exclude-sites-list {
     margin-top: 16px;
     padding: 0;
-    list-style: none; /* Sin viñetas */
+    list-style: none;
+    /* Sin viñetas */
 }
 
 ul.exclude-sites-list li {
-    padding: 12px; /* Espaciado interno */
-    background-color: #f3f4f6; /* Fondo gris claro */
-    margin-bottom: 6px; /* Espacio entre elementos */
-    border-radius: 8px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
-    color: #333; /* Color del texto */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    padding: 12px;
+    /* Espaciado interno */
+    background-color: var(--blue-strong);
+    /* Fondo gris claro */
+    margin-bottom: 6px;
+    /* Espacio entre elementos */
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    color: white;
+    /* Color del texto */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#addButton {
+    position: absolute;
+    right: 0;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    display: none;
+    width: 40px;
+    margin: auto;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--blue-strong);
+    --_m:
+        conic-gradient(#0000 10%, #000),
+        linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+    to {
+        transform: rotate(1turn)
+    }
 }

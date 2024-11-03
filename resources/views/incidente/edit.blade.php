@@ -21,8 +21,7 @@
                         @method('PUT')
 
                         <div class="content_data_documento">
-                            <fieldset>
-                                <legend>Datos del incidente</legend>
+
                                 <div class="detalles_documento">
                                     <div class="input-box-documento">
                                         <label for="tipo_id" class="label">Tipo de Incidente</label>
@@ -50,7 +49,6 @@
                                     <!-- Otros campos del incidente si es necesario -->
 
                                 </div>
-                            </fieldset>
 
                             <div class="col-md-12 mt20 mt-2">
                                 <button type="submit" class="input_enviar">{{ __('Actualizar') }}</button>

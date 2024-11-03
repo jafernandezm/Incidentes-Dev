@@ -24,6 +24,11 @@
         background-color: #f87171; /* Rojo brillante */
         color: #7f1d1d; /* Texto rojo oscuro */
     }
+    .view-escaneos a{
+        width: max-content;
+        color: var(--blue-strong);
+        text-decoration: none;
+    }
 </style>
 
 @vite(['resources/css/table_docen.css']) 
@@ -31,15 +36,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div class="float-right">
-                                <a href="{{ route('admin.create') }}" class="btn_right"  data-placement="left">
-                                    {{ ('Crear Usuario') }}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+    
 
                     <div class="card-body bg-white">
                         <table class="tableR">
@@ -72,11 +69,10 @@
                                         <td >
                                             {{ $escaneo['resultado'] }}
                                         </td>
-                                        <td>
-                                            <a href="{{ route('escaneo.enviar', ['id' => $escaneo['id']]) }}" class="px-2 py-1 text-xs font-medium text-white bg-green-500 rounded-full">VER</a>
-
+                                        <td class="view-escaneos">
+                                            <a href="{{ route('escaneo.enviar', ['id' => $escaneo['id']]) }}"><i class="fa-solid fa-eye"></i></a>
                                         </td>
-                                        {{-- <td>
+                                        <!-- {{-- <td>
                                             <form class="centered-form" action="{{ route('admin.destroy', $tecnico->id) }}" method="POST">
 
                                                 <a class="btn2  btn2-primary " href="{{ route('admin.edit', $tecnico->id) }}" ><i class="fas fa-edit"></i></a>
@@ -85,7 +81,7 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="btn2 btn-danger2  btn2-primary" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa-solid fa-trash-can"></i></button>
                                             </form>
-                                        </td> --}}
+                                        </td> --}} -->
                                     </tr>
                                 @endforeach
                             </tbody>

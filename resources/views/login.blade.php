@@ -3,9 +3,7 @@
 	
 	<div class="container-login" style="background-image: url('images/page/fondo_pantalla.jpg');">
 		<div class="box-login">
-			<div class="cover">
-     
-            </div>
+			<div class="cover"></div>
 			<div class="content-login">
 				<div class="form-login">
 					<h2>Iniciar sesión</h2>
@@ -20,7 +18,7 @@
 							<input class="input-log" type="password"  name="password" id="password" readonly onfocus="this.removeAttribute('readonly');" required>
 							<i class="fa-solid fa-lock" style="color: var(--blue-strong)"></i>
 							<span class="title-input">Contraseña</span>
-                            <span id="togglePassword" style="cursor: pointer;">
+                            <span id="togglePassword">
                                 <i class="fa-solid fa-eye" style="color: var(--blue-strong)"></i>
                             </span>
 						</div>

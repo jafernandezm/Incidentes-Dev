@@ -50,6 +50,8 @@ class FiltracionController extends Controller
         } elseif ($tipo === 'correo') {
             try {
                 $responseDataBreach = $this->getBreachInfo($consulta);
+                //dd($responseDataBreach);
+
             } catch (Exception $e) {
                 $errores[] = 'Error al obtener información de Breach: ' . $e->getMessage();
             }
@@ -57,17 +59,19 @@ class FiltracionController extends Controller
             try {
                 $apiLeakosint = $this->callAndProcessApi($consulta);
                 $responseData = $apiLeakosint['responseData'];
-                $contador = $apiLeakosint['contador'] + count($responseDataBreach['result']);
+                
             } catch (Exception $e) {
                 $errores[] = 'Error al procesar la API para Correo: ' . $e->getMessage();
             }
         };
+        $contador = ($apiLeakosint['contador'] ?? 0) + (is_array($responseDataBreach['result'] ?? null) ? count($responseDataBreach['result']) : 0);
 
         $escaneo = new Escaneo();
         $escaneo->url = $consulta;
         $escaneo->tipo = 'filtraciones';
         $escaneo->fecha = now();
         $escaneo->resultado = $contador;
+        //dd($escaneo);
         $escaneo->save();
         if (isset($responseData['List'])) {
             $listData = $responseData['List'];
@@ -125,7 +129,7 @@ class FiltracionController extends Controller
             "lang" => "es"
         ];
 
-        $url = 'https://server.leakosint.com/';
+        $url = 'https://leakosintapi.com';
 
         try {
             // Aumenta el tiempo de espera a 30 segundos (30000 milisegundos)

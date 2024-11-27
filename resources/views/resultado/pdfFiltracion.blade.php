@@ -80,22 +80,28 @@
             @endif
 
             @foreach ($datos as $result)
-                <div class="info-box">
-                    @php
-                        $data = json_decode($result['data'], true);
-                    @endphp
-
-                    @if (!empty($data))
-                        @foreach ($data as $key => $value)
-                            <div class="entry">
+            <div class="info-box">
+                @php
+                    $data = json_decode($result['data'], true); // Convierte la data JSON en un array asociativo
+                @endphp
+                
+                @if (!empty($data))
+                    @foreach ($data as $key => $value)
+                        <div class="entry">
+                            @if (is_array($value))
+                                <p class="entry-field">{{ ucfirst($key) }}: 
+                                    <span>{{ json_encode($value, JSON_PRETTY_PRINT) }}</span> <!-- Convertir array a JSON legible -->
+                                </p>
+                            @else
                                 <p class="entry-field">{{ ucfirst($key) }}: <span>{{ $value }}</span></p>
-                            </div>
-                        @endforeach
-                    @else
-                        <p>No hay datos disponibles.</p>
-                    @endif
-                </div>
-            @endforeach
+                            @endif
+                        </div>
+                    @endforeach
+                @else
+                    <p>No hay datos disponibles.</p>
+                @endif
+            </div>
+        @endforeach
         </div>
     @endforeach
 </div>

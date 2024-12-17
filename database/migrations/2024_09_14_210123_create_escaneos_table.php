@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('resultado');
             $table->json('detalles')->nullable();
             $table->enum('estado', ['reportar', 'no reportar', 'procesar'])->default('procesar');
+            $table->uuid('user_id')->nullable();
             $table->timestamps();         
         });
     }

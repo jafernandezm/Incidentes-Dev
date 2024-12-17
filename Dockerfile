@@ -1,62 +1,66 @@
+# Usar la imagen base oficial de PHP 8.2 con FPM
 FROM php:8.2-fpm
 
-# Arguments defined in docker-compose.yml
-ARG user
-ARG uid
+# Argumentos definidos en el docker-compose.yml
+ARG user=defaultuser
+ARG uid=1000
 
-# Install system dependencies
+# Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
     git \
     curl \
     libpq-dev \
     libpng-dev \
     libonig-dev \
-    libmcrypt-dev \
     libxml2-dev \
-    golang-go \
+    libzip-dev \
     zip \
     unzip \
-    wget
-RUN apt-get install -y whatweb
-RUN apt-get install -y gobuster
+    wget \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libwebp-dev \
+    libxpm-dev \
+    golang-go \
+    whatweb \
+    gobuster && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-xpm && \
+    docker-php-ext-install gd pdo_pgsql pdo_mysql mbstring exif pcntl bcmath && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Instala Gobuster
+# Instalar Gobuster vía Go
 RUN go install github.com/OJ/gobuster/v3@latest
-# Asignar permisos al ejecutable de whatweb
-# Asignar permisos al ejecutable de whatweb
+
+# Asignar permisos al ejecutable de WhatWeb
 RUN chmod +x /usr/bin/whatweb
 
-
-
-
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Disable IPV6
-#RUN echo "install ipv6 /bin/true" >> /etc/modprobe.d/disableipv6.conf
-
-# Set Google DNS server
-#127.0.0.1
+# Configurar el resolv.conf para DNS
 RUN echo '#!/bin/sh\n\
 echo "nameserver 127.0.0.1" > /etc/resolv.conf\n\
 echo "nameserver 8.8.8.8" >> /etc/resolv.conf\n\
 echo "nameserver 8.8.4.4" >> /etc/resolv.conf\n\
 echo "nameserver 1.1.1.1" >> /etc/resolv.conf' > /tmp/update-resolv-conf.sh
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd
-
-# Get latest Composer
+# Copiar Composer desde la imagen oficial
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
+# Crear usuario y configurar permisos
+RUN echo "User: $user, UID: $uid" && \
+    useradd -G www-data,root -u $uid -d /home/$user $user && \
+    mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
-# Set working directory
+# Definir directorio de trabajo
 WORKDIR /var/www
+
+# Crear carpeta adicional para whatweb
 RUN mkdir -p /var/www/html/whatweb
+
+# Cambiar al usuario no root
 USER $user
 
-#RUN php artisan migrate:fresh --seed 
+# Exponer el puerto predeterminado de PHP-FPM
+EXPOSE 9000
+
+# Comando por defecto
+CMD ["php-fpm"]

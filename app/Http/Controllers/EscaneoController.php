@@ -16,8 +16,13 @@ class EscaneoController extends Controller
      */
     public function index()
     {
+        //dd(auth()->user()->roles[0]->name);
+         if (auth()->user()->roles[0]->name === 'admin') {
+            $escaneos = Escaneo::orderBy('created_at', 'desc')->get();
+        } else {
+            $escaneos = Escaneo::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+        }
 
-        $escaneos = Escaneo::orderBy('created_at', 'desc')->get();
         return view('resultado.index', [
             'escaneos' => $escaneos
         ]);

@@ -79,6 +79,8 @@ class ActivoController extends Controller
         $escaneo->fecha = now();
         $escaneo->detalles = json_encode($detallesUnidos);
         $escaneo->resultado = $contadorTotal;
+        //guardar el id del usuario
+        $escaneo->user_id = auth()->user()->id;
         $escaneo->save();
         if ($contadoResultadoSeoJapones > 0) {
             $resultados = new ResultadoEscaneo();

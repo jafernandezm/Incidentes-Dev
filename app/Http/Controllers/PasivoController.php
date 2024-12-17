@@ -49,7 +49,8 @@ class PasivoController extends Controller
         $escaneo->tipo = 'PASIVO';
         $escaneo->fecha = date('Y-m-d H:i:s');
         $escaneo->resultado = $contadoResultado;
-
+        $escaneo->user_id = auth()->user()->id;
+        //dd($escaneo);
         // Si hay data y resultados, guardamos ambos
         if (!empty($ataqueSeoJaponesData) && $contadoResultado > 0) {
             $escaneo->detalles = json_encode($ataqueSeoJaponesData);
@@ -106,7 +107,9 @@ class PasivoController extends Controller
         $escaneo->tipo = 'PASIVO';
         $escaneo->fecha = date('Y-m-d H:i:s');
         $escaneo->resultado = $contadoResultado;
-
+         // El usuario está autenticado, obtenemos su ID
+       
+        $escaneo->user_id = auth()->user()->id;
         // Si hay data y resultados, guardamos ambos
         if (!empty($ataqueSeoJaponesData) && $contadoResultado > 0) {
             $escaneo->detalles = json_encode($ataqueSeoJaponesData);

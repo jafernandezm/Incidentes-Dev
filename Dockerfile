@@ -60,19 +60,20 @@ RUN echo "User: $user, UID: $uid" && \
 # Definir directorio de trabajo
 WORKDIR /var/www
 
+# Copiar el código del proyecto Laravel al contenedor
+COPY . /var/www
+
 # Crear carpeta adicional para whatweb
 RUN mkdir -p /var/www/html/whatweb
 
-# Instalar dependencias de Laravel y configurar la aplicación
-RUN composer install --no-scripts && \
-    chmod -R 777 storage/ bootstrap/cache/ && \
-    php artisan key:generate && \
-    php artisan migrate:fresh --seed
+# RUN composer install --no-scripts && \
+#     chmod -R 777 storage/ bootstrap/cache/ && \
+#     php artisan key:generate && \
+#     php artisan migrate:fresh --seed
 
 # Instalar dependencias de Node.js y compilar recursos
 RUN npm install 
 
-#CMD ["npm", "run", "start"]
 # Cambiar al usuario no root
 USER $user
 

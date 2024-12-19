@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('website:scan')->dailyAt('09:00');
+     // Ejecutar el comando todos los días a las 11:35
+     $schedule->command('website:scan')->cron('35 11 * * *');
     }
 
     /**

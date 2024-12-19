@@ -77,7 +77,7 @@ class PasivoController extends Controller
     }
 
     
-    public function scanWebsiteHora($requestDorks, $requestnumResultsControl=10)
+    public function scanWebsiteHora($requestDorks, $requestnumResultsControl=40)
     {
         $Busqueda = new BusquedaGoogle();
         $ataqueSeoJapones = new AtaqueSeoJapones();

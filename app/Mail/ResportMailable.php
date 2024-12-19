@@ -52,7 +52,7 @@ class ResportMailable extends Mailable
         }
     
         // Muestra en consola los fragmentos de resultados (solo para depuración)
-        print_r($resultadosDivididos);
+        //print_r($resultadosDivididos);
         
         return $this->subject($asunto)
                     ->view('emails.reporte')

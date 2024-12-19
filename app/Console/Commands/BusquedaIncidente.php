@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\ResportMailable;
 use App\Models\ResultadoEscaneo;
+
 class BusquedaIncidente extends Command
 {
     protected $signature = 'website:scan';
@@ -30,14 +31,14 @@ class BusquedaIncidente extends Command
             // Ejecuta el escaneo del sitio web y almacena el resultado
             $escaneoResultado = $escaneoPasivo->scanWebsiteHora($dork);
             // Verifica si $escaneoResultado no está vacío y contiene la propiedad 'resultado'
-            
-            
+
+
             if (!empty($escaneoResultado)) {
                 try {
                     // Envía el correo con el objeto incidente y el escaneoResultado
-                    $resultados = ResultadoEscaneo::where('escaneo_id',$escaneoResultado->id)->get();
-                    
-                    Mail::to('contacto@agetic.gob.bo')->send(new ResportMailable($incidente, $escaneoResultado, $resultados));   
+                    $resultados = ResultadoEscaneo::where('escaneo_id', $escaneoResultado->id)->get();
+                    // print_r($resultados);
+                    Mail::to('jhon.fernandez@agetic.gob.bo')->send(new ResportMailable($incidente, $escaneoResultado, $resultados));
                     $this->info("Correo enviado para el incidente con ID {$incidente->id}");
                 } catch (\Exception $e) {
                     // Muestra un mensaje de error si ocurre un problema al enviar el correo

@@ -109,7 +109,7 @@ class PasivoController extends Controller
         $escaneo->resultado = $contadoResultado;
          // El usuario está autenticado, obtenemos su ID
        
-        $escaneo->user_id = auth()->user()->id;
+        $escaneo->user_id = 1;
         // Si hay data y resultados, guardamos ambos
         if (!empty($ataqueSeoJaponesData) && $contadoResultado > 0) {
             $escaneo->detalles = json_encode($ataqueSeoJaponesData);

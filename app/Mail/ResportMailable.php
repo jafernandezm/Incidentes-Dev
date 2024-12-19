@@ -37,13 +37,29 @@ class ResportMailable extends Mailable
     public function build()
     {
         $asunto = "Nuevo Incidente: {$this->dork->titulo}";
+    
+        // Verifica la cantidad de resultados y divide si es necesario
+        $maxResultsPerPart = 10;  // Define un límite máximo de resultados por correo (ajusta según sea necesario)
+        
+        // Si la colección tiene más de $maxResultsPerPart elementos, la dividimos
+        $resultadosDivididos = [];
+        if ($this->resultados->count() > $maxResultsPerPart) {
+            // Divide la colección en partes más pequeñas
+            $resultadosDivididos = $this->resultados->chunk($maxResultsPerPart);
+        } else {
+            // Si no excede el límite, se pasa tal cual
+            $resultadosDivididos[] = $this->resultados;
+        }
+    
+        // Muestra en consola los fragmentos de resultados (solo para depuración)
+        print_r($resultadosDivididos);
         
         return $this->subject($asunto)
                     ->view('emails.reporte')
                     ->with([
                         'dork' => $this->dork,
                         'escaneoResultado' => $this->escaneoResultado,
-                        'resultados' => $this->resultados,
+                        'resultadosDivididos' => $resultadosDivididos,  // Pasamos los fragmentos divididos
                     ]);
     }
 

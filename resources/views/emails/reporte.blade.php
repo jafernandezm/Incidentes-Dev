@@ -1,4 +1,3 @@
-<!-- resources/views/emails/reporte_incidente.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -63,9 +62,29 @@
             <li><strong>Tipo:</strong> {{ $escaneoResultado->tipo }}</li>
             <li><strong>Estado:</strong> {{ $escaneoResultado->estado }}</li>
             <li><strong>Consulta:</strong> {{ $escaneoResultado->url }}</li>
-            
-            <li><strong>URL</strong> {{ $resultados['url'] }}</li>
         </ul>
+
+        <h2>Resultados del Incidente</h2>
+
+        {{-- Recorremos los fragmentos de resultados divididos --}}
+        @foreach($resultadosDivididos as $resultados)
+            <h3>Parte de los Resultados</h3>
+            <ul>
+                @foreach($resultados as $item)
+                    <li>
+                        <strong>URL:</strong> {{ $item->url }}<br>
+                        <strong>Detalle:</strong> {{ $item->detalle }}<br>
+                        <strong>Datos:</strong>
+                        <ul>
+                            @foreach(json_decode($item->data, true) as $key => $value)
+                                <li><strong>{{ $key }}:</strong> {!! nl2br(e(is_array($value) ? json_encode($value) : $value)) !!}</li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
+        @endforeach
+        
         <p>Para más información, haga clic en el botón a continuación:</p>
         <a href="{{ url('/escaneo/enviar/' . $escaneoResultado->id) }}" class="button">Ver más detalles</a>
     </div>

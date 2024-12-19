@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/escaneo/enviar/{id}/pdf', [EscaneoController::class, 'pdf'])->middleware('can:admin.create')->name('escaneo.pdf');
     
     
+    
     #Route::get('/escaneo/enviar', [EscaneoController::class, 'enviar'])->name('escaneo.enviar');
     //Route::post('/escaneo/enviar', [EscaneoController::class, 'enviar'])->name('escaneo.enviar');
     //filtracion

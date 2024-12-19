@@ -45,6 +45,14 @@ class IncidenteSeeder extends Seeder
                 'descripcion' => 'HTML infectado',
                 'fecha' => '2024-06-22'
             ],
+            //   <meta property="og:locale" content="ja_JP">
+            [
+                'tipo_id' => 2,
+                'contenido' => '<meta property="og:locale" content="ja_JP">',
+                'descripcion' => 'HTML infectado',
+                'fecha' => '2024-06-22'
+                
+            ],
             [
               'tipo_id' => 2,
               'contenido' => '<script>window.location=',

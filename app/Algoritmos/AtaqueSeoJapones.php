@@ -65,7 +65,7 @@ class AtaqueSeoJapones
         $busquedaGoogle = new BusquedaGoogle();
         $client = new Client([
             RequestOptions::VERIFY => false,
-            RequestOptions::TIMEOUT => 15,
+            RequestOptions::TIMEOUT => 35,
             RequestOptions::ALLOW_REDIRECTS => ['track_redirects' => true],
         ]);
 
@@ -85,17 +85,23 @@ class AtaqueSeoJapones
                 //dd($url);
                 $responseContent = $response['value'];
                 $html = $responseContent->getBody()->getContents();
+                
                 $redirects = $responseContent->getHeader('X-Guzzle-Redirect-History');
                 $urlResponse = $redirects[0] ?? $url;
                 // Procesar redirecciones
                 $results = array_merge($results, $this->procesarRedirecciones($url, $redirects, $urlResponse));
                 // Buscar URLs infectadas y HTML infectado
                 $results = array_merge($results, $this->extraUrlsScan($html, $url));
+               
                 $results = array_merge($results, $this->buscarHtmlInfectado($html, $urlResponse, $url));
+               
             }
         }
 
-
+        // dd([
+            
+        //     'results' => $results
+        // ]);
 
         // Obtener la IP y otros datos adicionales
         // $respuestaWhatweb = $this->getWhatwebResponse($url); // Función que obtiene la IP, ajusta esto según tu implementación

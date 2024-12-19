@@ -31,11 +31,14 @@ class BusquedaGoogle
         $options = [
             RequestOptions::VERIFY => false,
             RequestOptions::TIMEOUT => $timeout,
+            
         ];
         $client = new Client($options);
         $results = [];
         foreach ($queries as $query) {
             $query = str_replace(' ', '%20', $query);
+            #$url = $this->proxy[0] . 'https://www.google.com/search?q=' . $query . '&num=' . $numResults;
+
             $url = 'https://www.google.com/search?q=' . $query . '&num=' . $numResults;
             try {
                 $response = $client->request('GET', $url, [
@@ -73,6 +76,7 @@ class BusquedaGoogle
                 error_log('Request failed: ' . $e->getMessage());
             }
         }
+        //dd($results);
         return $results;
     }
 }

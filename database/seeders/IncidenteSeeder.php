@@ -71,6 +71,8 @@ class IncidenteSeeder extends Seeder
                 'descripcion' => 'dorksPasivo',
                 'fecha' => '2024-06-22'
             ],
+            //anadir esto site:gob.bo hacked
+          
             [
                 'tipo_id' => 4,
                 'contenido' => '-filetype:pdf japan',
@@ -102,6 +104,13 @@ class IncidenteSeeder extends Seeder
                 'descripcion' => 'HTML infectado',
                 'fecha' => '2024-06-22'
               ],
+              //<title>エフェクター　ボード一式セット　custom audio japan - ギター</title>
+                [
+                    'tipo_id' => 2,
+                    'contenido' => '<title>エフェクター ボード一式セット custom audio japan - ギター</title>',
+                    'descripcion' => 'HTML infectado',
+                    'fecha' => '2024-06-22'
+                ],
               //intext:"hacked by ./outsiders" site:.bo
               //tipo3
               [
@@ -109,7 +118,13 @@ class IncidenteSeeder extends Seeder
                 'contenido' => 'intext:"hacked by ./outsiders" site:.bo',
                 'descripcion' => 'dorksPasivo',
                 'fecha' => '2024-06-22'
-              ]
+              ],
+              [
+                'tipo_id' => 3,
+                'contenido' => 'site:gob.bo hacked',
+                'descripcion' => 'dorksPasivo',
+                'fecha' => '2024-06-22'
+            ],
           ];
           \App\Models\Incidente::factory()->createMany($incidentes);
     }

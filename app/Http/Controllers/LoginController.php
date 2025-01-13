@@ -9,7 +9,15 @@ use App\Models\User;
 class LoginController extends Controller
 {
     
-    public function index(){
+    public function index()
+    {
+        // Verificar si el usuario ya está autenticado
+        if (Auth::check()) {
+            // Redirigir al inicio (o a cualquier otra ruta deseada)
+            return redirect()->route('temas');
+        }
+    
+        // Mostrar la página de login si no está autenticado
         return view('login');
     }
 
@@ -27,7 +35,7 @@ class LoginController extends Controller
 
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             
-            //return view('index'); 
+            $request->session()->regenerate(); // Regenera el ID de la sesión
             return redirect()->route('temas');
         }
 

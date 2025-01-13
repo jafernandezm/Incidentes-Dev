@@ -18,21 +18,34 @@
                         <hr>
                         <div class="details hidden">
                             <ul class="list-disc">
-                            
+                                
                                 @foreach ($item as $key => $value)
-                                {{-- {{dd($key)}} --}}
                                 <li>
                                     <strong>{{ ucfirst($key) }}:</strong>
                                     @if ($key === 'html_infectado' || $key === 'html')
-                                        <div class="code-html">
-                                            <pre><code class="language-html">
-                                                {!! htmlspecialchars(is_array($value) ? implode("\n", $value) : $value, ENT_QUOTES, 'UTF-8') !!}
-                                            </code></pre>
-                                        </div>
+                                        @if (is_array($value))
+                                            <ul>
+                                                @foreach ($value as $subValue)
+                                                    <li>
+                                                        <div class="code-html">
+                                                            <pre><code class="language-html">
+                                                                {!! htmlspecialchars(is_string($subValue) ? $subValue : json_encode($subValue, JSON_PRETTY_PRINT), ENT_QUOTES, 'UTF-8') !!}
+                                                            </code></pre>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            <div class="code-html">
+                                                <pre><code class="language-html">
+                                                    {!! htmlspecialchars(is_string($value) ? $value : json_encode($value, JSON_PRETTY_PRINT), ENT_QUOTES, 'UTF-8') !!}
+                                                </code></pre>
+                                            </div>
+                                        @endif
                                     @elseif (is_string($value) && (strpos($value, 'selector') !== false || strpos($value, 'return') !== false || strpos($value, 'function') !== false))
                                         <div class="code-javascript">
                                             <pre><code class="language-javascript">
-                                                {{ is_array($value) ? implode("\n", $value) : $value }}
+                                                {{ is_array($value) ? json_encode($value, JSON_PRETTY_PRINT) : $value }}
                                             </code></pre>
                                         </div>
                                     @else

@@ -60,7 +60,7 @@ class PasivoController extends Controller
             $resultado = new ResultadoEscaneo();
             $resultado->escaneo_id = $escaneo->id;
             $resultado->url = $request->dorks;
-            $resultado->detalle = 'Ataque SEO Japonés';
+            $resultado->detalle = 'Ataque SEO Japones';
             $resultado->data = json_encode($ataqueSeoJaponesResults);
             $resultado->save();
         } else {
@@ -77,7 +77,7 @@ class PasivoController extends Controller
     }
 
     
-    public function scanWebsiteHora($requestDorks, $requestnumResultsControl=40)
+    public function scanWebsiteHora($requestDorks, $requestnumResultsControl=60)
     {
         $Busqueda = new BusquedaGoogle();
         $ataqueSeoJapones = new AtaqueSeoJapones();

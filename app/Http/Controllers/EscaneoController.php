@@ -17,7 +17,7 @@ class EscaneoController extends Controller
     public function index()
     {
         //dd(auth()->user()->roles[0]->name);
-         if (auth()->user()->roles[0]->name === 'admin') {
+        if (auth()->user()->roles[0]->name === 'admin') {
             $escaneos = Escaneo::orderBy('created_at', 'desc')->get();
         } else {
             $escaneos = Escaneo::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
@@ -50,8 +50,10 @@ class EscaneoController extends Controller
             ]);
         } elseif ($tipo == 'PASIVO') {
             // Si es del tipo 'PASIVO'
-           // dd($escaneo);
+            // dd($escaneo);
             $detalles = json_decode($escaneo->detalles, true);
+
+        
             return view('pasivo.resultado', [
                 'escaneo' => $escaneo,
                 'detalles' => $detalles,
@@ -117,9 +119,41 @@ class EscaneoController extends Controller
     {
         // Encuentra los resultados del escaneo basados en el 'id' enviado
         $resultados = ResultadoEscaneo::where('escaneo_id', $id)->get();
-        //dd($resultados);
+        
+        // Obtener el primer elemento de la colección
+        if($resultados->isEmpty()){
+            return redirect()->route('escaneo.index')->with('error', 'No se encontraron resultados');
+        }
+
+        $primero = $resultados->first();
+        //dd($primero->detalle);
+        if ($primero->detalle !== 'Ataque SEO Japones') {
+            return view('resultado.card', [
+                'resultados' => $resultados
+            ]);
+        }
+        // Acceder al campo 'data'
+        $data = $primero->data;
+
+        //ahora convertir en json
+        $data = json_decode($data, true);
+        // Inspeccionar el contenido
+        /// Inicializar un array para almacenar las URLs
+        $urls = [];
+
+        // Recorrer el JSON y extraer las URLs
+        foreach ($data as $key => $value) {
+            // Verificar que 'URL_ORIGEN' exista en el valor
+            if (isset($value['URL_ORIGEN'])) {
+                $urls[] = $value['URL_ORIGEN']; // Guardar la URL en el array
+            }
+        }
+        // Obtener las URLs únicas
+        $uniqueUrls = array_unique($urls);
+        //dd($uniqueUrls);
         return view('resultado.card', [
-            'resultados' => $resultados
+            'resultados' => $resultados,
+            'urls' => $uniqueUrls
         ]);
     }
 
@@ -130,9 +164,9 @@ class EscaneoController extends Controller
         //     'estado' => 'required|string|in:reportado,no reportado,en proceso', // Validar que el estado sea uno de los valores permitidos
         //    // 'escaneo_id' => 'required|uuid|exists:escaneos,id', // Validar que escaneo_id sea un UUID existente
         // ]);
-    
+
         $id = $request->escaneo_id;
-        
+
         // Buscar el escaneo por ID
         $escaneo = Escaneo::findOrFail($id);
         //dd($escaneo);
@@ -141,13 +175,12 @@ class EscaneoController extends Controller
             // Actualizar el estado
             $escaneo->estado = $request->estado;
             $escaneo->save();
-    
+
             // Redireccionar o devolver respuesta con éxito
             return redirect()->back()->with('success', 'Estado actualizado correctamente.');
         }
-    
+
         // Si el estado no ha cambiado, redirigir con un mensaje de error
         return redirect()->back()->with('error', 'No hubo cambios en el estado.');
     }
-    
 }

@@ -15,16 +15,19 @@ class BusquedaGoogle
         'https://cors-anywhere.herokuapp.com/'
     ];
     public $Header = [
-        'Upgrade-Insecure-Requests' => '1',
-        'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0',
-        'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Host' => 'www.google.com',
+        'Cookie' => 'NID=521=DVG7XQYQJ8RvgaJKzulCBhbMxJSAVU4vEBgFhS7jT8daAweEoQsH95ev7ktbcT5WzbCT8sV8mVcBwY7ETVRkoMkRjGmKFPfuLimbntTK7tUTJu2my72BK3wujk9Cprn5DgVWngOZ-AcT4cmRT1NpR8RCs_FkHKvm6kISosde4pQLN3ruUQnxDBdEskT62Bg4c2b3jrERG3DT9WmmJBoYKeZhdPMfxLg0NvmzhlSCU-k6r1aCZN6VXy2kkl0AJhWd6lxXoHYU; AEC=AVcja2cWuzdbuozdixFved3Evg2tPlb5HQSXEV-m5JClF7BPuNCh8jWNuA; GCL_AW_P=GCL.1738416511.EAIaIQobChMIv43Wj8qiiwMV7l9IAB02MAuNEAAYASAAEgJPuPD_BwE',
+        'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0',
+        'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8',
         'Accept-Language' => 'en-US,en;q=0.5',
         'Accept-Encoding' => 'gzip, deflate, br',
-        'Referer' => 'https://www.google.com/',
-        'Te' => 'trailers',
+        'Upgrade-Insecure-Requests' => '1',
         'Sec-Fetch-Dest' => 'document',
         'Sec-Fetch-Mode' => 'navigate',
-        'Sec-Fetch-Site' => 'cross-site',
+        'Sec-Fetch-Site' => 'none',
+        'Sec-Fetch-User' => '?1',
+        'Priority' => 'u=0, i',
+        'Te' => 'trailers',
     ];
 
     public function  googleSearch($queries = [], $timeout = 20, $numResults = 10) {
@@ -40,16 +43,22 @@ class BusquedaGoogle
             #$url = $this->proxy[0] . 'https://www.google.com/search?q=' . $query . '&num=' . $numResults;
 
             $url = 'https://www.google.com/search?q=' . $query . '&num=' . $numResults;
+            
             try {
                 $response = $client->request('GET', $url, [
-                    'headers' => [
-                        'origin' => 'x-requested-with',
-                    ],
+                    // 'headers' => [
+                    //     //'origin' => 'x-requested-with',
+                    // ],
+                    'headers' => $this->Header,
                 ]);
+               
                 $content = $response->getBody()->getContents();
+               
                 $dom = new \DOMDocument();
                 @$dom->loadHTML($content);
+       
                 $links = $dom->getElementsByTagName('a');
+              
                 foreach ($links as $link) {
                     $href = $link->getAttribute('href');
                     if (strpos($href, '/url?q=') === 0) {
@@ -76,7 +85,7 @@ class BusquedaGoogle
                 error_log('Request failed: ' . $e->getMessage());
             }
         }
-        //dd($results);
+        dd($results);
         return $results;
     }
 }

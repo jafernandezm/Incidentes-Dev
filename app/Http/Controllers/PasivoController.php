@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Algoritmos\BusquedaGoogle;
+use App\Algoritmos\BusquedaApi;
 use App\Algoritmos\AtaqueSeoJapones;
 //Resultados_Escaneos
 use App\Models\ResultadoEscaneo;
@@ -22,6 +23,7 @@ class PasivoController extends Controller
     public function scanWebsite(PasivoRequest $request)
     {
         $Busqueda = new BusquedaGoogle();
+        $BusquedaApi = new BusquedaApi();
         $ataqueSeoJapones = new AtaqueSeoJapones();
         $numResultsControl = $request->cantidad;
         $dorks = $request->dorks;
@@ -32,7 +34,9 @@ class PasivoController extends Controller
             }, explode(',', $request->excludeSitesHidden));
             $query .= ' ' . implode(' ', $excludedSites);
         }
-        $resultados = $Busqueda->googleSearch($queries = [$query], $timeout = 30, $numResults = $numResultsControl);
+        //$resultados = $Busqueda->googleSearch($queries = [$query], $timeout = 30, $numResults = $numResultsControl);
+        $resultados = $BusquedaApi->googleSearch($queries = [$query], $numResults = $numResultsControl);
+        //dd($resultados);
         //$ataqueSeoJaponesTodo = $ataqueSeoJapones->AtaqueSeoJapones($resutaldos);
         // Procesamos el ataque SEO Japonés
         $ataqueSeoJaponesTodo = $ataqueSeoJapones->AtaqueSeoJapones($resultados);
@@ -77,9 +81,9 @@ class PasivoController extends Controller
     }
 
     
-    public function scanWebsiteHora($requestDorks, $requestnumResultsControl=60)
+    public function scanWebsiteHora($requestDorks, $requestnumResultsControl=70)
     {
-        $Busqueda = new BusquedaGoogle();
+        $BusquedaApi = new BusquedaApi();
         $ataqueSeoJapones = new AtaqueSeoJapones();
         $numResultsControl = $requestnumResultsControl;
         $dorks = $requestDorks;
@@ -90,15 +94,18 @@ class PasivoController extends Controller
         //     }, explode(',', $request->excludeSitesHidden));
         //     $query .= ' ' . implode(' ', $excludedSites);
         // }
-        $resultados = $Busqueda->googleSearch($queries = [$query], $timeout = 30, $numResults = $numResultsControl);
+        $resultados = $BusquedaApi->googleSearch($queries = [$query], $timeout = 30, $numResults = $numResultsControl);
+        //dd($resultados);
         //$ataqueSeoJaponesTodo = $ataqueSeoJapones->AtaqueSeoJapones($resutaldos);
         // Procesamos el ataque SEO Japonés
         $ataqueSeoJaponesTodo = $ataqueSeoJapones->AtaqueSeoJapones($resultados);
+
         //dd($ataqueSeoJaponesTodo);
         $ataqueSeoJaponesResults = $ataqueSeoJaponesTodo['results'] ?? [];
         $ataqueSeoJaponesData = $ataqueSeoJaponesTodo['data'] ?? [];
 
         // Contamos los resultados
+
         $contadoResultado = count($ataqueSeoJaponesResults);
 
         // Creamos el escaneo

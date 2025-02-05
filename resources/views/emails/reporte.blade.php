@@ -19,6 +19,8 @@
             border: 1px solid #dddddd;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-wrap: break-word; /* Evita que el texto se salga del contenedor */
+            word-wrap: break-word; /* Compatibilidad con navegadores antiguos */
         }
         h1 {
             color: #333;
@@ -51,6 +53,17 @@
         .button:hover {
             background-color: #0056b3;
         }
+        .resultado {
+            margin-left: 20px;
+        }
+        .scrollable {
+            max-height: 150px; /* Altura máxima para el contenido desplazable */
+            overflow-y: auto; /* Hace que el contenido sea desplazable verticalmente */
+            border: 1px solid #ddd; /* Borde para distinguir el área desplazable */
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -76,9 +89,34 @@
                         <strong>Detalle:</strong> {{ $item->detalle }}<br>
                         <strong>Datos:</strong>
                         <ul>
-                            @foreach(json_decode($item->data, true) as $key => $value)
-                                <li><strong>{{ $key }}:</strong> {!! nl2br(e(is_array($value) ? json_encode($value) : $value)) !!}</li>
-                            @endforeach
+                            @php
+                                $data = json_decode($item->data, true);
+                                if (is_array($data)) {
+                                    foreach ($data as $index => $dataItem) {
+                                        echo "<li class='resultado'><strong>Resultado " . ($index + 1) . ":</strong></li>";
+                                        echo "<ul class='resultado'>";
+                                        foreach ($dataItem as $key => $value) {
+                                            // Convertir el valor a string si es un array
+                                            if (is_array($value)) {
+                                                $value = json_encode($value); // Convertir array a JSON
+                                            }
+                                            // Manejo especial para los campos "html" y "html_infectado"
+                                            if ($key === 'html' || $key === 'html_infectado') {
+                                                $lines = explode("\n", $value); // Dividir en líneas
+                                                $lines = array_slice($lines, 0, 20); // Limitar a 20 líneas
+                                                $value = implode("\n", $lines); // Unir las líneas
+                                                $value = substr($value, 0, 300) . '...'; // Limitar a 300 caracteres
+                                                echo "<li><strong>" . ucfirst($key) . ":</strong></li>";
+                                                echo "<div class='scrollable'>" . nl2br(e($value)) . "</div>";
+                                            } else {
+                                                // Mostrar otros campos normalmente
+                                                echo "<li><strong>" . ucfirst($key) . ":</strong> " . nl2br(e($value)) . "</li>";
+                                            }
+                                        }
+                                        echo "</ul>";
+                                    }
+                                }
+                            @endphp
                         </ul>
                     </li>
                 @endforeach

@@ -50,10 +50,17 @@ class ResportMailable extends Mailable
             // Si no excede el límite, se pasa tal cual
             $resultadosDivididos[] = $this->resultados;
         }
-    
-        // Muestra en consola los fragmentos de resultados (solo para depuración)
-        //print_r($resultadosDivididos);
-        
+
+      
+       //escaneoResultado si es site:gob.bo hacked mostrar un dd
+        // if($this->escaneoResultado->url == 'site:gob.bo hacked') {
+        //     dd([
+        //         'dork' => $this->dork,
+        //         'escaneoResultado' => $this->escaneoResultado,
+        //         'resultadosDivididos' => $resultadosDivididos,  // Pasamos los fragmentos divididos
+        //     ]);
+        // }
+       
         return $this->subject($asunto)
                     ->view('emails.reporte')
                     ->with([

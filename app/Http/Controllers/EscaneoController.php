@@ -32,7 +32,7 @@ class EscaneoController extends Controller
     {
         // Obtén el escaneo basado en el ID
         $escaneo = Escaneo::find($id);
-
+      
         // Verifica si el escaneo existe
         if (!$escaneo) {
             return redirect()->route('escaneo.index')->with('error', 'Escaneo no encontrado');
@@ -53,7 +53,7 @@ class EscaneoController extends Controller
             // dd($escaneo);
             $detalles = json_decode($escaneo->detalles, true);
 
-        
+            
             return view('pasivo.resultado', [
                 'escaneo' => $escaneo,
                 'detalles' => $detalles,
@@ -119,7 +119,7 @@ class EscaneoController extends Controller
     {
         // Encuentra los resultados del escaneo basados en el 'id' enviado
         $resultados = ResultadoEscaneo::where('escaneo_id', $id)->get();
-        
+            //dd($resultados);
         // Obtener el primer elemento de la colección
         if($resultados->isEmpty()){
             return redirect()->route('escaneo.index')->with('error', 'No se encontraron resultados');
@@ -150,7 +150,9 @@ class EscaneoController extends Controller
         }
         // Obtener las URLs únicas
         $uniqueUrls = array_unique($urls);
-        //dd($uniqueUrls);
+
+
+   
         return view('resultado.card', [
             'resultados' => $resultados,
             'urls' => $uniqueUrls

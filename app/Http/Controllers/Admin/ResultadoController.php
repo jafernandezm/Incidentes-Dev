@@ -31,7 +31,8 @@ class ResultadoController extends Controller
     {
 
         $tipo = $request->input('tipo');
-        //dd($tipo);
+        
+     
         if ($tipo == 'filtraciones') {
             $uuid = $request->input('uuid');
 
@@ -46,7 +47,7 @@ class ResultadoController extends Controller
             $uuid = $request->input('uuid');
             $resultados = ResultadoEscaneo::where('escaneo_id', $uuid)->get()->toArray();
             //dd($resultados);
-            //dd($resultados);
+           
             // Redirigir a una vista específica para resultados
             return view('pasivo.resultado', [
                 'resultados' => $resultados

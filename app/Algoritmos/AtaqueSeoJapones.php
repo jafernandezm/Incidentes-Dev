@@ -161,9 +161,7 @@ class AtaqueSeoJapones
             return true; // Incluir el resto
         });
 
-        // Verificar el resultado
-        //dd($urlsFiltradas);
-        //dd($urls);
+      
         $busquedaGoogle = new BusquedaGoogle();
         $client = new Client([
             RequestOptions::VERIFY => false,
@@ -174,7 +172,7 @@ class AtaqueSeoJapones
         $promises = [];
         foreach ($urls as $url) {
             $promises[$url['url']] = $client->getAsync($url['url'], [
-                'headers' => $busquedaGoogle->Header
+                //'headers' => $busquedaGoogle->Header
             ]);
         }
 
@@ -189,6 +187,7 @@ class AtaqueSeoJapones
 
                 $responseContent = $response['value'];
                 $html = $responseContent->getBody()->getContents();
+               
                 //quiero ver el contenido de la respuesta de https://prensa.ipelc.gob.bo/hax.htm
                 // if ($url == "https://prensa.ipelc.gob.bo/hax.htm") {
                 //     dd($html);
@@ -201,6 +200,8 @@ class AtaqueSeoJapones
                 $results = array_merge($results, $this->extraUrlsScan($html, $url));
 
                 $results = array_merge($results, $this->buscarHtmlInfectado($html, $urlResponse, $url));
+
+                //dd( $results);
             }
         }
 
@@ -276,6 +277,7 @@ class AtaqueSeoJapones
                 ];
             }
         }
+        //dd($results);
         return $results;
     }
 }
